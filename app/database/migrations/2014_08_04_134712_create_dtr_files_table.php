@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateDailyTimeRecordTable extends Migration {
+class CreateDtrFilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,10 @@ class CreateDailyTimeRecordTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('daily_time_records', function(Blueprint $table)
+		Schema::create('dtr_files', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('rid');
-			$table->dateTime('rdatetime');
-			$table->string('rtime');
-			$table->string('rtype');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}
@@ -31,7 +28,7 @@ class CreateDailyTimeRecordTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('daily_time_records');
+		Schema::drop('dtr_files');
 	}
 
 }
