@@ -1,5 +1,5 @@
 <?php
 
 class DailyTimeRecord extends \Eloquent {
-	protected $fillable = ['rid', 'rdatetime', 'rtime', 'rtype'];
+	protected $fillable = ['rid', 'rdate', 'rtime', 'rtype'];
 }

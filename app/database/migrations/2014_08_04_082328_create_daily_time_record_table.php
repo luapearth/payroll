@@ -16,7 +16,7 @@ class CreateDailyTimeRecordTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('rid');
-			$table->dateTime('rdatetime');
+			$table->date('rdate');
 			$table->string('rtime');
 			$table->string('rtype');
 			$table->timestamps();

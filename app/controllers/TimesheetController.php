@@ -11,6 +11,7 @@ class TimesheetController extends \BaseController {
 	 */
 	public function index()
 	{
+		$dtrfromto = DailyTimeRecord::where('rdate', '>=', '2014-05-26')->where('rdate', '<=', '2014-05-27')->get();
 		$this->layout->content = View::make('timesheet.index', compact('dtrfromto'));
 	}
 
@@ -71,7 +72,7 @@ class TimesheetController extends \BaseController {
 						if ( in_array($row[2], $dateRange) ) {
 							DailyTimeRecord::create(array(
 								'rid'				=>		$row[1],
-								'rdatetime'	=>		$row[2] . " " .$row[3],
+								'rdate'			=>		$row[2],
 								'rtime'			=>		$row[3],
 								'rtype'			=>		$entry_type
 							));

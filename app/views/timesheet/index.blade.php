@@ -61,7 +61,7 @@
 		@foreach ( $dtrfromto as $value )
 			<tr>
 				<td>{{ $value->rid }}</td>
-				<td>{{ $value->rdatetime }}</td>
+				<td>{{ $value->rdate }}</td>
 				<td>{{ $value->rtype }}</td>
 			</tr>
 		@endforeach
