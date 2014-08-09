@@ -3,24 +3,17 @@
 class TimesheetController extends \BaseController {
 
 	protected $layout = "layouts.master";
-	/**
-	 * Display a listing of the resource.
-	 * GET /timesheet
-	 *
-	 * @return Response
-	 */
+
+	public function __construct()
+	{
+		// $this->beforeFilter('auth');
+	}
+	
 	public function index()
 	{
-		$dtrfromto = DailyTimeRecord::where('rdate', '>=', '2014-05-26')->where('rdate', '<=', '2014-05-27')->get();
-		$this->layout->content = View::make('timesheet.index', compact('dtrfromto'));
+		$this->layout->content = View::make('timesheet.index');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /timesheet
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
 		$from = Input::get('dtrfrom');
@@ -77,6 +70,7 @@ class TimesheetController extends \BaseController {
 								'rtype'			=>		$entry_type
 							));
 						}
+						echo $row[1] . " " . $row[2] . " " . $row[4] . " " . $entry_type . "<br>";
 					}
 				}
 

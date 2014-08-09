@@ -8,3 +8,5 @@ Route::resource('/auth', 'AuthController',
 
 Route::resource('/timesheet', 'TimesheetController',
 		array('only' => array('index', 'store')));
+
+Route::resource('/departments', 'DepartmentsController');
