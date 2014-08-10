@@ -6,7 +6,7 @@
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.min.css') }}">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset('ionicons.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/AdminLTE.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -34,18 +34,18 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>John Paul Del Mundo <i class="caret"></i></span>
+                                <span>@if (Auth::check()) {{Auth::user()->email}} @endif <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="img/avatar5.png" class="img-circle" alt="User Image" />
+                                    <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                                     <p>
-                                        John Paul Del Mundo
+                                        @if (Auth::check()) {{Auth::user()->email}} @endif
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
-                                <li class="user-body">
+                                <!-- <li class="user-body">
                                     <div class="col-xs-4 text-center">
                                         <a href="#">Followers</a>
                                     </div>
@@ -55,14 +55,16 @@
                                     <div class="col-xs-4 text-center">
                                         <a href="#">Friends</a>
                                     </div>
-                                </li>
+                                </li> -->
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    {{ Form::open(array('route' => array('auth.destroy'), 'method' => 'delete', 'style' => 'display:inline-block;')) }}
+                                        <button type="submit" href="{{ URL::route('auth.destroy') }}" class="btn btn-default btn-flat">Sign out</button>
+                                    {{ Form::close() }}
                                     </div>
                                 </li>
                             </ul>
@@ -79,10 +81,10 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar5.png" class="img-circle" alt="User Image" />
+                            <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, John Paul</p>
+                            <p>@if (Auth::check()) {{Auth::user()->email}} @endif</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -117,6 +119,11 @@
                                 <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="/lock">
+                                <i class="fa fa-desktop"></i> <span>Lock</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -145,7 +152,7 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('js/moment.js') }}"></script>
 	<script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>

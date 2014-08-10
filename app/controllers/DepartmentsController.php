@@ -4,56 +4,42 @@ class DepartmentsController extends \BaseController {
 
 	protected $layout = 'layouts.master';
 
+	public function __construct()
+	{
+		$this->beforeFilter('auth');
+	}
+
 	public function index()
 	{
 		$departments = Department::orderBy('name', 'asc')->get();
 		$this->layout->content = View::make('departments.index', compact('departments'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /departments/create
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
-		//
+		$this->layout->content = View::make('departments.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /departments
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
-		//
+		if ( Input::get('name') == "" )
+		{
+			return Redirect::to('departments/create')->with('message', 'warning::Please fill out the department name!');
+		}
+
+		$dept = Department::create(array(
+			'name' => trim(strtoupper(Input::get('name')))
+		));
+
+		if ($dept) return Redirect::to('/departments');
+
+		return Redirect::to('departments/create')->with('message', 'warning::Something went wrong please try again :(');
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /departments/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /departments/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
-		//
+		$department = Department::find($id);
+		$this->layout->content = View::make('departments.edit', compact('department'));
 	}
 
 	/**
@@ -65,7 +51,14 @@ class DepartmentsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$department = Department::find($id);
+		if (Input::get('name') != "")
+		{
+			$department->name = Input::get('name');
+			$department->save();	
+		}
+
+		return Redirect::to('departments');
 	}
 
 	/**
@@ -77,7 +70,10 @@ class DepartmentsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$department = Department::find($id);
+		$department->delete();
+
+		return Redirect::to('departments');
 	}
 
 }
