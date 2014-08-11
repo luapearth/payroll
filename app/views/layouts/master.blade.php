@@ -36,7 +36,7 @@
                                 <i class="glyphicon glyphicon-user"></i>
                                 <span>
                                     @if (Auth::check()) 
-                                        @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "")
+                                        @if (isset(Auth::user()->userinformation->firstname) && Auth::user()->userinformation->firstname != "")
                                             {{ substr(Auth::user()->userinformation->firstname, 0, 1) . ". " . Auth::user()->userinformation->lastname }} 
                                         @else 
                                             {{ Auth::user()->email }}
@@ -50,7 +50,7 @@
                                     <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                                     <p>
                                         @if (Auth::check()) 
-                                            @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "")
+                                            @if (isset(Auth::user()->userinformation->firstname) && Auth::user()->userinformation->firstname != "")
                                                 {{ Auth::user()->userinformation->firstname . " " . Auth::user()->userinformation->lastname }} 
                                             @else 
                                                 {{ Auth::user()->email }}
@@ -98,7 +98,7 @@
                             <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>@if (Auth::check()) @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "") {{ substr(Auth::user()->userinformation->firstname, 0, 1) . ". " . Auth::user()->userinformation->lastname }} @else {{ Auth::user()->email }} @endif @endif</p>
+                            <p>@if (Auth::check()) @if (isset(Auth::user()->userinformation->firstname) && Auth::user()->userinformation->firstname != "") {{ substr(Auth::user()->userinformation->firstname, 0, 1) . ". " . Auth::user()->userinformation->lastname }} @else {{ Auth::user()->email }} @endif @endif</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>

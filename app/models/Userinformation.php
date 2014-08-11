@@ -1,6 +1,6 @@
 <?php
 
-class Userinformation extends \Eloquent {
+class UserInformation extends \Eloquent {
 	protected $fillable = ['firstname', 'middlename', 'lastname', 'is_male'];
 
 	public function user()

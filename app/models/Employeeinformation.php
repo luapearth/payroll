@@ -1,6 +1,6 @@
 <?php
 
-class Employeeinformation extends \Eloquent {
+class EmployeeInformation extends \Eloquent {
 	protected $fillable = ['employeeid', 'rid', 'department_id', 'sss', 'tin'];
 
 	public function user()

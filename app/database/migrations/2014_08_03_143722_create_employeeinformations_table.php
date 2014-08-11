@@ -12,11 +12,13 @@ class CreateEmployeeinformationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('employeeinformations', function(Blueprint $table)
+		Schema::create('employee_informations', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('employeeid');
-			$table->integer('rid');
+			$table->integer('rid')->nullable();
+			$table->string('sss')->nullable();
+			$table->string('tin')->nullable();
 			$table->integer('department_id')->unsigned()->index();
 			$table->foreign('department_id')->references('id')->on('departments');
 			$table->integer('user_id')->unsigned()->index();
@@ -33,7 +35,7 @@ class CreateEmployeeinformationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('employeeinformations');
+		Schema::drop('employee_informations');
 	}
 
 }

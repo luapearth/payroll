@@ -14,7 +14,7 @@ class ProfileController extends \BaseController {
 		$user = User::find(Auth::user()->id);
 		if ($user->userinformation == null)
 		{
-			$userinfo = new Userinformation(array(
+			$userinfo = new UserInformation(array(
 								'firstname' => '',
 								'middlename' => '', 
 								'lastname' => '', 
@@ -32,7 +32,7 @@ class ProfileController extends \BaseController {
 
 	public function update($id)
 	{
-		$userinfo = Userinformation::find($id);
+		$userinfo = UserInformation::find($id);
 		$userinfo->firstname = Input::get('firstname');
 		$userinfo->middlename = Input::get('middlename');
 		$userinfo->lastname = Input::get('lastname');

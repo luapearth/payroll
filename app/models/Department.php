@@ -5,7 +5,7 @@ class Department extends \Eloquent {
 
 	public function employeeinformation()
 	{
-		return $this->hasMany('Employeeinformation');
+		return $this->hasMany('EmployeeInformation');
 	}
 
 	public static function selectlist()

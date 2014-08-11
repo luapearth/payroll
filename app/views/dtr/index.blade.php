@@ -14,7 +14,7 @@
 	</div>
 	</div>
 	@endif
-	{{ Form::open(array('route' => 'timesheet.index', 'enctype' => 'multipart/form-data', 'role' => 'form', 'class' => 'form-horizontal')) }}
+	{{ Form::open(array('route' => 'face.index', 'enctype' => 'multipart/form-data', 'role' => 'form', 'class' => 'form-horizontal')) }}
 		<div class="form-group">
 			{{ Form::label('dtrfrom', 'Date from:', array('class' => 'col-sm-2 control-label')) }}
 			<div class="col-sm-9">

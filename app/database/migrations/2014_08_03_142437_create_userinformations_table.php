@@ -12,7 +12,7 @@ class CreateUserinformationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('userinformations', function(Blueprint $table)
+		Schema::create('user_informations', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('firstname');
@@ -33,7 +33,7 @@ class CreateUserinformationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('userinformations');
+		Schema::drop('user_informations');
 	}
 
 }

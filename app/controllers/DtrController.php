@@ -18,7 +18,7 @@ protected $layout = "layouts.master";
 	{
 		$from = Input::get('dtrfrom');
 		$to = Input::get('dtrto');
-		if ($from == "" || $to == "") return Redirect::to('dtr')->with('message', 'warning::Date from and to are required!')->withInput();
+		if ($from == "" || $to == "") return Redirect::to('/face')->with('message', 'warning::Date from and to are required!')->withInput();
 
 		if (Input::hasFile('dtr'))
 		{
@@ -76,13 +76,13 @@ protected $layout = "layouts.master";
 
 				fclose($file);
 
-				return Redirect::to('dtr')->with('message', 'success::Upload complete!');
+				return Redirect::to('/face')->with('message', 'success::Upload complete!');
 			}
 
-			return Redirect::to('dtr')->with('message', 'warning::Invalid file type.')->withInput();
+			return Redirect::to('/face')->with('message', 'warning::Invalid file type.')->withInput();
 		}
 
-		return Redirect::to('dtr')->with('message', 'warning::Please select dtr file.')->withInput();
+		return Redirect::to('/face')->with('message', 'warning::Please select dtr file.')->withInput();
 	}
 
 }
