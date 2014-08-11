@@ -24,7 +24,7 @@ class EmployeesController extends \BaseController {
 			$Empinfo = $user->employeeinformation;
 		}
 
-		$this->layout->content = View::make('employees.index', compact('Empinfo'));
+		$this->layout->content = View::make('employees.index', array('title' => 'Employee Details'), compact('Empinfo'));
 	}
 
 	public function Update($id)

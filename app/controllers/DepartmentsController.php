@@ -12,12 +12,12 @@ class DepartmentsController extends \BaseController {
 	public function index()
 	{
 		$departments = Department::orderBy('name', 'asc')->get();
-		$this->layout->content = View::make('departments.index', compact('departments'));
+		$this->layout->content = View::make('departments.index', array('title' => 'Departments'), compact('departments'));
 	}
 
 	public function create()
 	{
-		$this->layout->content = View::make('departments.create');
+		$this->layout->content = View::make('departments.create', array('title' => 'Create new departments'));
 	}
 
 	public function store()
@@ -39,7 +39,7 @@ class DepartmentsController extends \BaseController {
 	public function edit($id)
 	{
 		$department = Department::find($id);
-		$this->layout->content = View::make('departments.edit', compact('department'));
+		$this->layout->content = View::make('departments.edit', array('title' => 'Edit department'), compact('department'));
 	}
 
 	/**

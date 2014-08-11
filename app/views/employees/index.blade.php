@@ -1,3 +1,8 @@
+@section('panel')
+	<h1>{{ $title }}</h1>
+	@parent
+@stop
+
 @section('content')
 	{{ Form::model($Empinfo, array('route' => array('employees.update', $Empinfo->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'role' => 'form')) }}
 		<div class="form-group">

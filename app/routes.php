@@ -8,7 +8,9 @@ Route::get('/logout', 'AuthController@destroy');
 Route::resource('/auth', 'AuthController', 
 		array('only' => array('index', 'store', 'destroy')));
 
-Route::resource('/timesheet', 'TimesheetController',
+Route::resource('/timesheet', 'TimesheetController');
+
+Route::resource('/face', 'DtrController',
 		array('only' => array('index', 'store')));
 
 Route::resource('/departments', 'DepartmentsController');

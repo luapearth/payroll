@@ -1,3 +1,7 @@
+@section('panel')
+	<h1>{{ $title }}</h1>
+@stop
+
 @section('content')
 {{ Form::model($Userinformation, array('route' => array('profile.update', $Userinformation->id), 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT')) }}
 	<div class="form-group">

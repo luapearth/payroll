@@ -27,7 +27,7 @@ class ProfileController extends \BaseController {
 			$Userinformation = $user->userinformation;
 		}
 
-		$this->layout->content = View::make('profile.index', compact('Userinformation'));
+		$this->layout->content = View::make('profile.index', array('title' => 'User Profile'), compact('Userinformation'));
 	}
 
 	public function update($id)

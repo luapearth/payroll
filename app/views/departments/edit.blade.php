@@ -1,3 +1,8 @@
+@section('panel')
+	<h1>{{ $title }}</h1>
+@stop
+
+
 @section('content')
 <div class="container">
 	{{ Form::model( $department, array('route' => array('departments.update', $department->id), 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT' )) }}

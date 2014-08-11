@@ -1,3 +1,7 @@
+@section('panel')
+	<h1>{{ $title }}</h1>
+@stop
+
 @section('content')
 <div class="container">
 	@if ( Session::get('message') !== null )

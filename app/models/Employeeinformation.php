@@ -7,4 +7,9 @@ class Employeeinformation extends \Eloquent {
 	{
 		return $this->belongsTo('User');
 	}
+
+	public function department()
+	{
+		return $this->belongsTo('Department');
+	}
 }

@@ -3,6 +3,11 @@
 class Department extends \Eloquent {
 	protected $fillable = ['name'];
 
+	public function employeeinformation()
+	{
+		return $this->hasMany('Employeeinformation');
+	}
+
 	public static function selectlist()
 	{
 		$optlist = array();

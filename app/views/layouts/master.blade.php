@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>DTR Data</title>
+	<title>P.M.S</title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.min.css') }}">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -118,12 +118,17 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/profile"><i class="fa fa-angle-double-right"></i> User Details</a></li>
+                                <li><a href="/profile"><i class="fa fa-angle-double-right"></i> User Profile</a></li>
                                 <li><a href="/employees"><i class="fa fa-angle-double-right"></i> Employee Details</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="/timesheet">
+                                <i class="fa fa-folder"></i> <span>Time Sheet</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/face">
                                 <i class="fa fa-clock-o"></i> <span>DTR Upload</span>
                             </a>
                         </li>
@@ -140,16 +145,14 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <!-- <section class="content-header">
-                    <h1>
-                        Daily Time Record
-                        <small>Upload DTR file here</small>
-                    </h1>
-                    <ol class="breadcrumb">
+                <section class="content-header">
+                    @section('panel')
+                    @show
+                    <!-- <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Blank page</li>
-                    </ol>
-                </section> -->
+                    </ol> -->
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
