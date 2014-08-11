@@ -12,7 +12,7 @@
 	@endif
 	{{ Form::open(array('route' => 'departments.store', 'role' => 'form', 'class' => 'form-horizontal')) }}
 		<div class="form-group">
-			{{ Form::label('name', 'Name: ', array('class' => 'col-sm-2 label-control')) }}
+			{{ Form::label('name', 'Name: ', array('class' => 'col-sm-2 control-label')) }}
 			<div class="col-sm-9">
 				{{ Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'Programming', 'autofocus' => 'autofocus')) }}
 			</div>

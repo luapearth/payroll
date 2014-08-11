@@ -2,7 +2,7 @@
 <div class="container">
 	{{ Form::model( $department, array('route' => array('departments.update', $department->id), 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT' )) }}
 		<div class="form-group">
-			{{ Form::label('name', 'Name: ', array('class' => 'col-sm-2 label-control')) }}
+			{{ Form::label('name', 'Name: ', array('class' => 'col-sm-2 control-label')) }}
 			<div class="col-sm-9">
 				{{ Form::text('name', null, array('class' => 'form-control')) }}
 			</div>

@@ -6,6 +6,7 @@ class AuthController extends \BaseController {
 	public function __construct()
 	{
 		$this->beforeFilter('csrf', array('on' => 'post'));
+		$this->beforeFilter('authorize', array('role' => 'encoder'));
 	}
 
 	public function index()
@@ -38,7 +39,7 @@ class AuthController extends \BaseController {
 		{
 			$curuser = Auth::user();
 			$user = array(
-				'name' => $curuser->email,
+				'name' => isset($curuser->userinformation->firstname) && $curuser->userinformation->firstname != "" ? $curuser->userinformation->firstname : $curuser->email,
 				'email' => $curuser->email,
 				'avatar' => 'avatar5.png'
 			);

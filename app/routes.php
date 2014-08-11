@@ -12,3 +12,9 @@ Route::resource('/timesheet', 'TimesheetController',
 		array('only' => array('index', 'store')));
 
 Route::resource('/departments', 'DepartmentsController');
+
+Route::resource('/profile', 'ProfileController',
+		array('only', array('index', 'update')));
+
+Route::resource('/employees', 'EmployeesController',
+		array('only' => array('index', 'update')));

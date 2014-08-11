@@ -34,14 +34,28 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>@if (Auth::check()) {{Auth::user()->email}} @endif <i class="caret"></i></span>
+                                <span>
+                                    @if (Auth::check()) 
+                                        @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "")
+                                            {{ substr(Auth::user()->userinformation->firstname, 0, 1) . ". " . Auth::user()->userinformation->lastname }} 
+                                        @else 
+                                            {{ Auth::user()->email }}
+                                        @endif
+                                    @endif
+                                <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                                     <p>
-                                        @if (Auth::check()) {{Auth::user()->email}} @endif
+                                        @if (Auth::check()) 
+                                            @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "")
+                                                {{ Auth::user()->userinformation->firstname . " " . Auth::user()->userinformation->lastname }} 
+                                            @else 
+                                                {{ Auth::user()->email }}
+                                            @endif
+                                        @endif
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -59,7 +73,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/lock" class="btn btn-default btn-flat">Lock</a>
                                     </div>
                                     <div class="pull-right">
                                     {{ Form::open(array('route' => array('auth.destroy'), 'method' => 'delete', 'style' => 'display:inline-block;')) }}
@@ -84,7 +98,7 @@
                             <img src="{{ asset("img/avatar5.png") }}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>@if (Auth::check()) {{Auth::user()->email}} @endif</p>
+                            <p>@if (Auth::check()) @if (Auth::user()->userinformation->firstname && Auth::user()->userinformation->firstname != "") {{ substr(Auth::user()->userinformation->firstname, 0, 1) . ". " . Auth::user()->userinformation->lastname }} @else {{ Auth::user()->email }} @endif @endif</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -97,32 +111,26 @@
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
+                        <li class="treeview">
+                            <a href="">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Profile</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/profile"><i class="fa fa-angle-double-right"></i> User Details</a></li>
+                                <li><a href="/employees"><i class="fa fa-angle-double-right"></i> Employee Details</a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="/timesheet">
-                                <i class="fa fa-th"></i> <span>DTR Upload</span>
+                                <i class="fa fa-clock-o"></i> <span>DTR Upload</span>
                             </a>
                         </li>
                         <li>
                         	<a href="/departments">
-                        		<i class="fa fa-th"></i> <span>Departments</span>
+                        		<i class="fa fa-building-o"></i> <span>Departments</span>
                         	</a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
-                                <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-                                <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/lock">
-                                <i class="fa fa-desktop"></i> <span>Lock</span>
-                            </a>
                         </li>
                     </ul>
                 </section>
