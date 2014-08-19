@@ -15,10 +15,12 @@ class CreateDailyTimeRecordTable extends Migration {
 		Schema::create('daily_time_records', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('rid');
+			$table->integer('rid')->nullable();
+			$table->string('employeeid')->nullable();
 			$table->date('rdate');
 			$table->string('rtime');
 			$table->string('rtype');
+			$table->string('img_url')->nullable();
 			$table->timestamps();
 		});
 	}

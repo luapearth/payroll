@@ -4,6 +4,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/login', 'AuthController@index');
 Route::get('/lock', 'AuthController@getLock');
 Route::get('/logout', 'AuthController@destroy');
+Route::post('/upload', 'HomeController@store');
 
 Route::resource('/auth', 'AuthController', 
 		array('only' => array('index', 'store', 'destroy')));
